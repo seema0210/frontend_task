@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const NewCard = ({ setOpenModal, setCards }) => {
 
@@ -32,6 +33,7 @@ const NewCard = ({ setOpenModal, setCards }) => {
         setCards((preData) => {
             return [...preData, ...cretedUser]
         })
+        toast.success("User Added successfully");
         setOpenModal(false)
     }
 

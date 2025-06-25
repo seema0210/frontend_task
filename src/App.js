@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import NewCard from './NewCard';
 
@@ -39,9 +41,10 @@ function App() {
       })
 
       setCards((prevCard) => prevCard?.filter((item) => item.id !== currentId))
+      toast.success("User deleted successfully");
 
     } catch (error) {
-      console.log('delete api error', error);
+      toast.error("Error deleting user");
     }
   }
 
@@ -83,6 +86,8 @@ function App() {
           </div>
         )
       }
+
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
 
   );
